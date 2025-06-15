@@ -7247,12 +7247,11 @@ function processTurn() {
                 
                 let nearestTarget = null;
                 let nearestDistance = Infinity;
-                
+
                 // 가장 가까운 대상 찾기
-                const playerDistance = getDistance(monster.x, monster.y, gameState.player.x, gameState.player.y);
-                if (playerDistance <= MONSTER_VISION) { // 이동 + 공격 범위
+                if (distToPlayer <= MONSTER_VISION) { // 이동 + 공격 범위
                     nearestTarget = gameState.player;
-                    nearestDistance = playerDistance;
+                    nearestDistance = distToPlayer;
                 }
                 
                 gameState.activeMercenaries.forEach(mercenary => {
