@@ -202,20 +202,17 @@
 /* ---- Special unit glow effects ---- */
 .cell.elite {
   box-shadow: 0 0 8px rgba(244, 67, 54, 0.7);
-  animation: monsterPulse 1.5s ease-in-out infinite alternate;
 }
 
 .cell.champion {
-  /* BUG FIX: 챔피언 셀의 배경색을 명시적으로 투명하게 설정하여 
+  /* BUG FIX: 챔피언 셀의 배경색을 명시적으로 투명하게 설정하여
      하위 바닥 타일 이미지가 보이도록 수정합니다. */
   background-color: transparent;
   box-shadow: 0 0 8px rgba(255, 235, 59, 0.7);
-  animation: monsterPulse 1.5s ease-in-out infinite alternate;
 }
 
 .cell.superior {
   box-shadow: 0 0 8px rgba(33, 150, 243, 0.7);
-  animation: monsterPulse 1.5s ease-in-out infinite alternate;
 }
 
 .inv-filter-btn {
