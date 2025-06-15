@@ -864,6 +864,7 @@
     <div class="main-container">
         <div class="game-area">
             <div class="dungeon-container">
+                <canvas id="game-canvas" width="650" height="650" style="position:absolute;top:0;left:0;pointer-events:none;"></canvas>
                 <div class="dungeon" id="dungeon"></div>
             </div>
             <div class="message-log" id="message-log"></div>
@@ -1044,6 +1045,17 @@
             }
         }
         document.addEventListener('DOMContentLoaded', updateLogTextColor);
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.canvasRenderer && document.getElementById('game-canvas')) {
+                const canvas = document.getElementById('game-canvas');
+                const ctx = canvas.getContext('2d');
+                window.canvasRenderer.assetLoader.load(images => {
+                    setInterval(() => {
+                        window.canvasRenderer.renderGame(canvas, ctx, images, window.gameState);
+                    }, 100);
+                });
+            }
+        });
     </script>
 </body>
 </html>
