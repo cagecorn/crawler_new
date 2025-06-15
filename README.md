@@ -6,13 +6,7 @@ This project is a lightweight browser-based dungeon crawler. It lets players exp
 
 Open `index.html` in a modern web browser to start the game. The player now begins with every available skill already learned, so no class selection is required.
 
-```bash
-npx http-server
-```
-
-Running a small HTTP server from the project directory is recommended because some browsers block
-ES module loading when opening the file directly via `file://`. You can still open `index.html`
-without a server, but you may need to adjust browser settings to permit local module imports.
+A local server is no longer required – simply open `index.html` directly.
 
 ### Dungeon Generation
 Each floor is carved from a depth-first search maze. Corridors span seven tiles,
