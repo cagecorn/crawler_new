@@ -1,0 +1,484 @@
+:root {
+  --panel-bg: #f5f5dc;
+  --slot-bg: #f7ead9;
+}
+
+.player {
+  /* background-image: url("assets/images/player.png"); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-color: transparent;
+  color: transparent;
+}
+
+/* Mercenary tile image */
+.mercenary {
+  /* background-image: url("assets/images/warrior.png"); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: transparent;
+  box-shadow: none;
+  animation: none;
+}
+
+/* Floor tile image for empty cells */
+.cell.empty {
+  background-image: url("assets/images/floor-tile.png");
+  background-size: cover;
+  background-color: transparent;
+}
+
+/* Wall tile image for wall cells */
+.cell.wall {
+  background-image: url("assets/images/wall-tile.png");
+  background-size: cover;
+  color: unset;
+  font-size: unset;
+  /* border: 1px solid #000; */
+}
+
+.cell.empty.player {
+  background-image: url("assets/images/player.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.cell.empty.mercenary {
+  background-image: url("assets/images/floor-tile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cell.empty.mercenary.warrior {
+  background-image: url("assets/images/warrior.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.cell.empty.mercenary.archer {
+  background-image: url("assets/images/archer.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.cell.empty.mercenary.healer {
+  background-image: url("assets/images/healer.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.cell.empty.mercenary.wizard {
+  background-image: url("assets/images/wizard.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+.cell.empty.mercenary.bard {
+  background-image: url("assets/images/bard.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+ }
+.cell.empty.mercenary.paladin {
+  background-image: url("assets/images/paladin.png"), url("assets/images/floor-tile.png");
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+ }
+
+/* Individual mercenary sprites */
+.mercenary.warrior {
+  background-image: url("assets/images/warrior.png");
+}
+
+.mercenary.archer {
+  background-image: url("assets/images/archer.png");
+}
+
+.mercenary.healer {
+  background-image: url("assets/images/healer.png");
+}
+
+.mercenary.wizard {
+  background-image: url("assets/images/wizard.png");
+}
+.mercenary.bard {
+  background-image: url("assets/images/bard.png");
+}
+.mercenary.paladin {
+  background-image: url("assets/images/paladin.png");
+}
+
+/* --- Mercenary Sprite Styling --- */
+
+/* 모든 용병 셀에 적용될 공통 스타일 */
+.cell.mercenary {
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 힐러 용병 이미지 적용 */
+.cell.mercenary.healer {
+  background-image: url('assets/images/healer.png');
+}
+
+/* 마법사 용병 이미지 적용 */
+.cell.mercenary.wizard {
+  background-image: url('assets/images/wizard.png');
+}
+.cell.mercenary.bard {
+  background-image: url('assets/images/bard.png');
+}
+.cell.mercenary.paladin {
+  background-image: url('assets/images/paladin.png');
+}
+
+/* --- 신규 몬스터 이미지 스타일 --- */
+
+/* 이미지를 사용하는 모든 몬스터의 기본 스타일 및 배경 설정 */
+.cell.monster {
+  background: transparent;
+  color: transparent;
+  box-shadow: none;
+  animation: none;
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* 슬라임 이미지 적용 */
+.cell.monster.slime {
+  background-image: url("assets/images/slime.png"), url("assets/images/floor-tile.png");
+}
+
+/* 고블린 궁수 이미지 적용 */
+.cell.monster.goblin-archer {
+  background-image: url("assets/images/goblin-archer.png"), url("assets/images/floor-tile.png");
+}
+
+/* 고블린 이미지 적용 */
+.cell.monster.goblin {
+  background-image: url("assets/images/goblin.png"), url("assets/images/floor-tile.png");
+}
+
+/* 좀비 이미지 적용 */
+.cell.monster.zombie {
+  background-image: url("assets/images/zombie.png"), url("assets/images/floor-tile.png");
+}
+
+/* 코볼트 이미지 적용 */
+.cell.monster.kobold {
+  background-image: url("assets/images/kobold.png"), url("assets/images/floor-tile.png");
+}
+
+/* 스켈레톤 이미지 적용 */
+.cell.monster.skeleton {
+  background-image: url("assets/images/skeleton.png"), url("assets/images/floor-tile.png");
+}
+
+/* 고블린 마법사 이미지 적용 */
+.cell.monster.goblin-wizard {
+  background-image: url("assets/images/goblin-wizard.png"), url("assets/images/floor-tile.png");
+}
+
+/* Item sprite styling */
+.cell.item {
+  background-size: contain, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-color: transparent;
+  image-rendering: pixelated;
+}
+
+/* ---- Special unit glow effects ---- */
+.cell.elite {
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.7);
+  animation: monsterPulse 1.5s ease-in-out infinite alternate;
+}
+
+.cell.champion {
+  /* BUG FIX: 챔피언 셀의 배경색을 명시적으로 투명하게 설정하여 
+     하위 바닥 타일 이미지가 보이도록 수정합니다. */
+  background-color: transparent;
+  box-shadow: 0 0 8px rgba(255, 235, 59, 0.7);
+  animation: monsterPulse 1.5s ease-in-out infinite alternate;
+}
+
+.cell.superior {
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.7);
+  animation: monsterPulse 1.5s ease-in-out infinite alternate;
+}
+
+.inv-filter-btn {
+  padding: 4px 8px;
+  border: 1px solid #777;
+  background-color: var(--slot-bg);
+  color: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.inv-filter-btn.active {
+  background-color: #6a6a6a;
+  border-color: #aaa;
+  font-weight: bold;
+}
+
+/* --- 유닛 효과 아이콘 스타일 --- */
+.buff-container, .status-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* 아이콘이 마우스 클릭을 방해하지 않도록 설정 */
+  font-size: 9px; /* <<< 크기 수정: 10px에서 9px로 줄여 더 작게 만듭니다. */
+  line-height: 1;
+  gap: 1px;
+}
+
+.buff-container {
+  top: -2px; /* 유닛 머리 위 */
+}
+
+.status-container {
+  bottom: -2px; /* 유닛 발밑 */
+}
+
+.effect-icon {
+    /* 1. color 속성을 되돌려 투명 상태를 해제하고, 이모티콘 고유색이 보이게 합니다. */
+    color: initial; 
+    
+    /* 2. 가독성을 위해 뚜렷한 테두리 대신 부드러운 검은색 그림자를 살짝 추가합니다. */
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
+}
+.tile-tab-container {
+  background: linear-gradient(135deg, var(--panel-bg), #ddd);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.tile-tab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tile-tab-slot {
+  width: var(--cell-width);
+  height: var(--cell-width);
+  background-color: #222;
+  border: 1px solid #666;
+  border-radius: 4px;
+  position: relative;
+}
+
+.tile-tab-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.low-health {
+  /* 이미지 자체가 붉은 색으로 보이도록 필터를 적용합니다. */
+  filter: brightness(0.6) sepia(1) hue-rotate(-50deg) saturate(6);
+  animation: monsterPulse 1s ease-in-out infinite alternate;
+}
+
+/* 시체 셀 스타일 및 아이콘 표시 */
+.corpse {
+    background: none;
+    background-image: url('assets/images/corpse.png'), url('assets/images/floor-tile.png');
+    background-size: contain, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    color: transparent;
+    /* 텍스트 아이콘이 중앙에 오도록 flex 속성 추가 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* BUG FIX: 시체 아이콘을 가상 요소로 렌더링하여 z-index 제어 */
+.cell.corpse::before {
+    content: '';
+    display: none;
+}
+/* style.css */
+
+/* --- 타일 시스템 스타일 --- */
+/* 화면 하단에 표시될 타일 보관함의 전체적인 모습 */
+.tile-tab-container {
+    width: 100%;
+    max-width: 1400px;
+    background: linear-gradient(135deg, var(--panel-bg), #ddd);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    border: 1px solid #555;
+    margin-top: 15px;
+}
+
+/* "타일 보관함" 제목 스타일 */
+.tile-tab-container h3 {
+    margin: 0 0 10px 0;
+    color: #00BCD4;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* 타일들이 정렬될 그리드 공간 */
+.tile-tab {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    gap: 5px;
+    max-height: 110px; /* 타일 2줄 높이만큼만 보이도록 제한 */
+    overflow-y: auto; /* 내용이 많아지면 스크롤바 생성 */
+}
+
+/* 타일 보관함의 각 타일 슬롯 */
+.tile-tab-slot {
+    width: 48px;
+    height: 48px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--slot-bg);
+    border-radius: 4px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated; /* 픽셀 아트가 번지지 않게 처리 */
+}
+
+.tile-tab-slot:hover {
+    border-color: #00BCD4; /* 마우스를 올리면 테두리 색상 변경 */
+}
+
+/* === 가장 중요한 시각 효과 부분 === */
+/* 유닛 뒤에 깔리는 타일 배경 */
+.equipped-tile-bg {
+    position: absolute; /* 부모(.cell)를 기준으로 위치를 잡습니다 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* 다른 이미지들보다 뒤에 위치하도록 설정 (0순위) */
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    box-shadow: 0 0 5px 2px #4CAF50;
+}
+
+/* 플레이어나 용병 스프라이트가 타일 배경(z-index: 0) 위에 보이도록 z-index를 1로 설정 */
+.cell.player, .cell.mercenary {
+    z-index: 1;
+}
+
+/* 상단 컨트롤 영역 */
+.top-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+#save-game {
+  background: linear-gradient(45deg, #2196F3, #1976D2);
+}
+
+#load-game {
+  background: linear-gradient(45deg, #FF9800, #F57C00);
+}
+
+#new-game {
+  background: linear-gradient(45deg, #9E9E9E, #757575);
+}
+
+#inventory-filters {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dungeon-container, .dungeon, .cell {
+  user-select: none;
+}
+
+.cell:focus {
+  outline: none;
+}
+
+/* 대사 메시지 스타일 */
+.message.dialogue {
+    color: #a7d8ff;
+    background-color: #2a3a4a;
+    border-left-color: #64b5f6;
+    font-style: italic;
+}
+
+.rare {
+  color: #42a5f5;
+}
+
+.unique {
+  color: #e53935;
+}
+
+/* --- Panel Styling --- */
+/* 모든 정보창에 적용될 공통 스타일 */
+
+.panel {
+    background-image: url('assets/images/ui-bg.png');
+    background-color: #3a2d1d; /* 이미지 로딩 실패 시 대비용 색상 */
+    background-size: cover;
+    color: #111;
+    font-weight: bold;
+
+    border: 20px solid transparent;
+    border-image-source: url('assets/images/ui-border.png');
+    border-image-slice: 25; /* 이 값을 조절하여 테두리 두께 맞춤 */
+    border-image-repeat: repeat;
+
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+/* --- Skill Effect Overlay and Animation --- */
+
+.skill-effect-overlay {
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    pointer-events: none;
+    animation: simple-nova-expand 0.6s ease-out forwards;
+}
+
+@keyframes simple-nova-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
