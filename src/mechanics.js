@@ -7669,6 +7669,13 @@ function processTurn() {
                 mercenary.hasActed = true;
                 return;
             }
+
+            // [최적화] 성기사 용병은 전용 AI를 먼저 실행합니다.
+            if (mercenary.role === 'paladin') {
+                processPaladinTurn(mercenary, visibleMonsters);
+                mercenary.hasActed = true;
+                return;
+            }
             mercenary.nextX = mercenary.x;
             mercenary.nextY = mercenary.y;
             const moveTiles = 1;
@@ -7927,7 +7934,12 @@ function processTurn() {
                 getDistance(mon.x, mon.y, gameState.player.x, gameState.player.y) <= FOG_RADIUS &&
                 hasLineOfSight(gameState.player.x, gameState.player.y, mon.x, mon.y)
             );
-            
+
+            const hasVisibleEnemies = visibleMonsters.some(m =>
+                getDistance(mercenary.x, mercenary.y, m.x, m.y) <= PARTY_LEASH_RADIUS
+            );
+
+            if (hasVisibleEnemies) {
             visibleMonsters.forEach(monster => {
                 const distanceFromPlayer = getDistance(monster.x, monster.y, gameState.player.x, gameState.player.y);
                 if (distanceFromPlayer > PARTY_LEASH_RADIUS) {
@@ -8489,6 +8501,7 @@ function processTurn() {
                 const d = getDistance(gameState.player.x, gameState.player.y, a.x, a.y);
                 if (d <= range && d < nearestDist) { nearestDist = d; nearest = a; }
             });
+            }
             gameState.player.mana -= manaCost;
             SoundEngine.playSound('auraActivateMinor');
             applyShield(gameState.player, gameState.player, skill, level);
