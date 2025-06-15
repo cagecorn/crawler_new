@@ -1,17 +1,17 @@
 // canvasRenderer.js
 
 // [수정] 원하는 타일 크기로 설정합니다. 48, 64 등 자유롭게 조절해보세요.
-export let TILE_SIZE = 64;
+let TILE_SIZE = 64;
 
 // 화면 크기에 맞춰 타일 크기를 동적으로 조절합니다.
-export function updateTileSize(displayWidth, displayHeight) {
+function updateTileSize(displayWidth, displayHeight) {
     const base = Math.min(displayWidth, displayHeight);
     // 너무 크거나 작지 않도록 범위를 제한합니다.
     TILE_SIZE = Math.max(32, Math.min(96, Math.floor(base / 20)));
 }
 
 // 이미지 로딩을 위한 객체
-export const assetLoader = {
+const assetLoader = {
     images: {},
     imageSources: {
         player: 'assets/images/player.png',
@@ -55,7 +55,7 @@ export const assetLoader = {
 };
 
 // 게임 상태를 캔버스에 그리는 메인 함수
-export function renderGame(canvas, ctx, images, gameState) {
+function renderGame(canvas, ctx, images, gameState) {
     if (!canvas || !ctx) return;
 
     // 캔버스를 지웁니다
@@ -189,4 +189,12 @@ function drawEffectIcons(ctx, x, y, size, unit) {
 // 이 파일에서만 임시로 사용하는 getStat 함수
 function getStat(unit, stat) {
     return unit[stat] || 0;
+}
+
+if (typeof window !== 'undefined') {
+    window.canvasRenderer = { TILE_SIZE, updateTileSize, assetLoader, renderGame };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { TILE_SIZE, updateTileSize, assetLoader, renderGame };
 }
